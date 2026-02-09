@@ -20,13 +20,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageButton4"
-        android:layout_width="82dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:id="@+id/editpic"
+        android:layout_width="27dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="4dp"
         android:src="@drawable/_39_4390267_edit_modify_ico_edit_pencil_icon_png_transparent_removebg_preview"
         app:layout_constraintStart_toEndOf="@+id/EditProfile"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/EditProfile" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

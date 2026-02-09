@@ -3,8 +3,6 @@ plugins {
 
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
 
 }
 

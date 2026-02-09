@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
@@ -40,7 +41,29 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar=findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
+
+        getOnBackPressedDispatcher().addCallback(this,new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // this method will be called when back button is pressed
+                if(getSupportFragmentManager().getBackStackEntryCount() >0) {
+                    getSupportFragmentManager().popBackStack();
+                    setDefaultFragment();
+                }
+                else getOnBackPressedDispatcher().onBackPressed();
+
+            }
+        });
+
+        setDefaultFragment();
     }
+
+    private void setDefaultFragment() {
+
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.fragment_container,new MainFragment()).addToBackStack(null).commit();
+    }
+
     public void listenForChanges(){
         FirebaseFirestore fb = FirebaseFirestore.getInstance();
 
@@ -53,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void onBtnClick(View view) {
         FirebaseFirestore fb = FirebaseFirestore.getInstance();
@@ -90,4 +114,5 @@ public class MainActivity extends AppCompatActivity {
                 replace(R.id.fragment_container,selectedFragment).commit();
         return super.onOptionsItemSelected(item);
     }
+
 }
