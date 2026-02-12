@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Benlistener">
         <activity
+            android:name=".ProfileEdit"
+            android:exported="false"
+            android:label="@string/title_activity_profile_edit"
+            android:theme="@style/Theme.Benlistener" />
+        <activity
             android:name=".PlayActivity"
             android:exported="false"
             android:label="@string/title_activity_play"
